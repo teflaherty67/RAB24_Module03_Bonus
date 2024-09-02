@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RevitAddIns>
+  <AddIn Type="Command">
+    <Text>RAB24_Module03_Bonus - Command 1</Text>
+    <Description>Some description</Description>
+    <Assembly>RAB24_Module03_Bonus\RAB24_Module03_Bonus.dll</Assembly>
+    <FullClassName>RAB24_Module03_Bonus.Command1</FullClassName>
+    <ClientId>a9cd4b6d-fb70-448e-992d-79bf1d777978</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Command">
+    <Text>RAB24_Module03_Bonus - Command 2</Text>
+    <Description>Some description</Description>
+    <Assembly>RAB24_Module03_Bonus\RAB24_Module03_Bonus.dll</Assembly>
+    <FullClassName>RAB24_Module03_Bonus.Command2</FullClassName>
+    <ClientId>bf7c23df-71f8-414a-b56c-3b720ca5ee30</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+  <AddIn Type="Application">
+    <Name>RAB24_Module03_Bonus</Name>
+    <Assembly>RAB24_Module03_Bonus\RAB24_Module03_Bonus.dll</Assembly>
+    <FullClassName>RAB24_Module03_Bonus.App</FullClassName>
+    <ClientId>b9db7b05-46fa-43c8-b7fe-477224293184</ClientId>
+    <VendorId>com.YOUR COMPANY NAME</VendorId>
+    <VendorDescription>YOUR COMPANY NAME, YOUR COMPANY URL</VendorDescription>
+  </AddIn>
+</RevitAddIns>
