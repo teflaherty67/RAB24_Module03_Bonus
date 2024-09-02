@@ -10,7 +10,17 @@
             UIDocument uidoc = uiapp.ActiveUIDocument;
             Document doc = uidoc.Document;
 
-            // Your code goes here
+            // prompt user to select Excel file
+            Forms.OpenFileDialog selectFile = new Forms.OpenFileDialog();
+            selectFile.Filter = "Excel files|*.xls;*.xlsx;*.xlsm";
+            selectFile.InitialDirectory = "S:\\";
+            selectFile.Multiselect = false;
+
+            string excelFile = "";
+
+            if (selectFile.ShowDialog() == DialogResult.OK)
+                excelFile = selectFile.FileName;
+
 
             return Result.Succeeded;
         }
