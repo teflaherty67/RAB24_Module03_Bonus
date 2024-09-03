@@ -30,8 +30,17 @@
                 return Result.Failed;
             }
 
-            // if Excel file selected, open it
+            // set EPPlus license context
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
+            // if Excel file selected, open it
+            ExcelPackage excel = new ExcelPackage(excelFile);
+
+            // get the workbook
+            ExcelWorkbook curWB = excel.Workbook;
+
+            // get the first worksheet
+            ExcelWorksheet firstWS = curWB.Worksheets[1];
 
             return Result.Succeeded;
         }

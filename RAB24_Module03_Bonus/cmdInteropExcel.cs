@@ -34,12 +34,15 @@ namespace RAB24_Module03_Bonus
 
             // if Excel file selected, open it
             Excel.Application excel = new Excel.Application();
+
+            // get the workbook
             Excel.Workbook curWB = excel.Workbooks.Open(excelFile);
 
             // get the first worksheet
             Excel.Worksheet firstWS = curWB.Worksheets[1];
-        
 
+            // get the range of cells used in worksheet
+            Excel.Range range = (Excel.Range)firstWS.UsedRange;
            
 
 
