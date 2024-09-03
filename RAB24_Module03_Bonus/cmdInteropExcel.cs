@@ -1,4 +1,6 @@
-﻿namespace RAB24_Module03_Bonus
+﻿using Excel = Microsoft.Office.Interop.Excel;
+
+namespace RAB24_Module03_Bonus
 {
     [Transaction(TransactionMode.Manual)]
     public class cmdInteropExcel : IExternalCommand
@@ -16,10 +18,25 @@
             selectFile.InitialDirectory = "S:\\";
             selectFile.Multiselect = false;
 
+            // create an empty string to hold the file name
             string excelFile = "";
 
+            // launch dialog & assign selected file to excelFile if Excel is selected
             if (selectFile.ShowDialog() == DialogResult.OK)
                 excelFile = selectFile.FileName;
+
+            // check if Excel file is selected
+            if (excelFile == "")
+            {
+                TaskDialog.Show("Error", "Please select an Excel file.");
+                return Result.Failed;
+            }
+
+            // if Excel file selected, open it
+            Excel.Application excel = new Excel.Application();
+            Excel.Workbook curWB = excel.Workbooks.Open(excelFile);
+
+           
 
 
             return Result.Succeeded;
