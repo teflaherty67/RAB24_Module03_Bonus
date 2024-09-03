@@ -36,6 +36,10 @@ namespace RAB24_Module03_Bonus
             Excel.Application excel = new Excel.Application();
             Excel.Workbook curWB = excel.Workbooks.Open(excelFile);
 
+            // get the first worksheet
+            Excel.Worksheet firstWS = curWB.Worksheets[1];
+        
+
            
 
 
