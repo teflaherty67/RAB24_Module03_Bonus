@@ -43,7 +43,28 @@ namespace RAB24_Module03_Bonus
 
             // get the range of cells used in worksheet
             Excel.Range range = (Excel.Range)firstWS.UsedRange;
-           
+
+            // get row and column count
+            int rows = range.Rows.Count;
+            int columnss = range.Columns.Count;
+
+            // read Excel data into a list
+            List<List<string>> excelData = new List<List<string>>();
+            
+            // loop through the rows
+            for (int i = 1; i <= rows; i++)
+            {
+                // create an empty list to hold the row data
+                List<string> rowData = new List<string>();
+                
+                // loop through the columns
+                for (int j = 1; j <= columnss; j++)
+                {
+                    string cellContent = firstWS.Cells[i, j].Value.ToString();
+                    rowData.Add(cellContent);
+                }
+                excelData.Add(rowData);
+            }
 
 
             return Result.Succeeded;
