@@ -1,4 +1,6 @@
-﻿namespace RAB24_Module03_Bonus
+﻿using Microsoft.Office.Interop.Excel;
+
+namespace RAB24_Module03_Bonus
 {
     [Transaction(TransactionMode.Manual)]
     public class cmdEPPlus : IExternalCommand
@@ -40,7 +42,29 @@
             ExcelWorkbook curWB = excel.Workbook;
 
             // get the first worksheet
-            ExcelWorksheet firstWS = curWB.Worksheets[1];
+            ExcelWorksheet firstWS = curWB.Worksheets[0];
+
+            // get row and column count
+            int rows = firstWS.Dimension.Rows;
+            int columnss = firstWS.Dimension.Columns;
+
+            // read Excel data into a list
+            List<List<string>> excelData = new List<List<string>>();
+
+            // loop through the rows
+            for (int i = 1; i <= rows; i++)
+            {
+                // create an empty list to hold the row data
+                List<string> rowData = new List<string>();
+
+                // loop through the columns
+                for (int j = 1; j <= columnss; j++)
+                {
+                    string cellContent = firstWS.Cells[i, j].Value.ToString();
+                    rowData.Add(cellContent);
+                }
+                excelData.Add(rowData);
+            }
 
             return Result.Succeeded;
         }
