@@ -66,6 +66,11 @@ namespace RAB24_Module03_Bonus
                 excelData.Add(rowData);
             }
 
+            // save and close Excel
+            excel.Save();
+            excel.Dispose();
+
+
             return Result.Succeeded;
         }
         internal static PushButtonData GetButtonData()
