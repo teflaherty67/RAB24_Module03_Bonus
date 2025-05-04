@@ -1,6 +1,4 @@
-﻿using Microsoft.Office.Interop.Excel;
-
-namespace RAB24_Module03_Bonus
+﻿namespace RAB24_Module03_Bonus
 {
     [Transaction(TransactionMode.Manual)]
     public class cmdEPPlus : IExternalCommand
@@ -64,6 +62,21 @@ namespace RAB24_Module03_Bonus
                     rowData.Add(cellContent);
                 }
                 excelData.Add(rowData);
+            }
+
+            // create new worksheet
+            ExcelWorksheet newWS = curWB.Worksheets.Add("Test EPPlus");
+
+            // write data to Excel
+
+            // row loop
+            for (int k = 1; k <= 10; k++)
+            {
+                // column loop
+                for (int j = 1; j <= 10; j++)
+                {
+                    newWS.Cells[k, j].Value = "Row " + k.ToString() + ": Column " + j.ToString();
+                }
             }
 
             // save and close Excel

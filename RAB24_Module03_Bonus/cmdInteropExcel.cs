@@ -66,8 +66,24 @@ namespace RAB24_Module03_Bonus
                 excelData.Add(rowData);
             }
 
+            // create new worksheet
+            Excel.Worksheet newWS = curWB.Worksheets.Add();
+            newWS.Name = "Test Interop.Excel";
+
+            // write data to Excel
+
+            // row loop
+            for (int k = 1; k <=10; k++)
+            {
+                // column loop
+                for (int j = 1;j <= 10; j++)
+                {
+                    newWS.Cells[k, j].Value = "Row " + k.ToString() + ": Column " + j.ToString();
+                }
+            }
+
             // save and close Excel
-            excel.Save();
+            curWB.Save();
             excel.Quit();
 
 
